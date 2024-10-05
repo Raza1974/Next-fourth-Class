@@ -2,26 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom properties for colors and spacing */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --header-bg-color: #ff6f61; /* Soft coral for header */
+  --text-color: #ffffff; /* White text for contrast */
+  --hover-color: #e34a33; /* Darker coral for hover effect */
+  --button-gap: 20px; /* Adjusted for better spacing */
+  --footer-bg-color: #d3a6a6; /* Dark gray for footer */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(59, 74%, 55%); /* Coral background */
+  padding: 20px;
+  height: 80px;
+  width: 100%;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--button-gap);
+  margin-left: auto;
+}
+
+.header-buttons a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  
+  transition: color 0.3s ease;
+}
+
+.header-buttons a:hover {
+  color: var(--hover-color); /* Darker coral for hover */
+  text-decoration: underline;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  justify-content: bottom;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.social-icons a {
+  font-size: 80px;
+  color: #77b0ec; /* Bright yellow for contrast */
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2); /* Enlarge on hover */
+  color: greenyellow; /* Coral hover effect */
+  
+}
+
+/* Footer styles */
+.footer {
+  display:center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--footer-bg-color); /* Dark gray background */
+  color: var(--text-color);
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Global styles for images */
+img {
+  max-width: 70px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Header image specific styles */
+.header img {
+  max-width: 5vw;
+  height: auto;
+}
+
+/* Responsive media queries */
+@media (max-width: 1024px) {
+  .header img {
+    max-width: 8vw;
+    height: 60px;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 768px) {
+  .header {
+    height: 70px;
+    padding: 10px;
+  }
+  .header-buttons {
+    gap: 15px;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (max-width: 480px) {
+  .header {
+    height: 60px;
+    padding: 5px;
+  }
+  .header-buttons a {
+    font-size: 8.2px;
+    
   }
 }
